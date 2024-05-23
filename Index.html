@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Ajedrez</title>
+		<style>
+			body { margin: 0; }
+		</style>
+	</head>
+	<body>		
+
+		<script type="module" src="main.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r119/three.js" integrity="sha512-N5Z+KLrIeRjD6NODmfDTz8onfsVTGwPmExvMVuQrGV/Y1gjTiJ+j2OLxViDzpxGqVX158pwTeZm6XDrCveo1jQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdn.rawgit.com/mrdoob/three.js/r119/examples/js/loaders/OBJLoader.js"></script>
+		<script src="https://cdn.rawgit.com/mrdoob/three.js/r119/examples/js/controls/OrbitControls.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/three/examples/js/vr/WebXR.js"></script>
+	
+		<button id="vrButton">Activar VR</button>
+	
+		<script>
+			document.getElementById('vrButton').addEventListener('click', function() {
+				if (navigator.xr) {
+					navigator.xr.requestDevice().then(function(device) {
+						device.requestSession({ mode: 'immersive-vr' }).then(function(session) {
+							// Tu escena Three.js debería ajustarse para funcionar en modo VR aquí
+							// Por ejemplo, puedes cambiar la cámara y los controles
+							// También puedes ajustar el renderizado para cada cuadro de VR
+						});
+					});
+				} else {
+					alert('Tu navegador no es compatible con WebXR.');
+				}
+			});
+		</script>
+	</body>
+</html>
